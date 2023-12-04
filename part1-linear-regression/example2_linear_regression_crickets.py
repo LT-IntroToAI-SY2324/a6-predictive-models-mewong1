@@ -7,9 +7,12 @@ from sklearn.linear_model import LinearRegression
 data = pd.read_csv("part1-linear-regression/chirping_data.csv")
 x = data["Temp"].values
 y = data["Chirps"].values
-
+print(data)
+print(x)
+print(y)
 # use reshape to turn the x values into a 2D array
 x = x.reshape(-1, 1)
+print(x)
 
 # create the model
 model = LinearRegression().fit(x, y)
@@ -19,9 +22,10 @@ model = LinearRegression().fit(x, y)
 coef = round(float(model.coef_), 2)
 intercept = round(float(model.intercept_), 2)
 r_squared = model.score(x, y)
+print(coef, intercept, r_squared)
 
 # value you are going to predict
-x_predict = 77
+x_predict = 98
 # plug that value into your model
 prediction = model.predict([[x_predict]])
 
