@@ -12,4 +12,4 @@ This says that there is not a large correlation between blood pressure and age
 137.4657
 
 3. How accurate do you think this model's predictions are?  Do you think this model is accurate enough to reliably predict someone's blood pressure based on their age?  Why or why not?  And if not, what could improve the model?
-I think that this model's predictions are mostly accurate. I do not think that this model is accurate enough to reliably predict someone's blood pressure on their age. More data could improve the model. The more information, the better the predictions would be because it would most likely be more accurate.
+I think that this model's predictions are mostly accurate. I do not think that this model is accurate enough to reliably predict someone's blood pressure on their age. More data could improve the model. The more information, the better the predictions would be because it would most likely be more accurate. 
