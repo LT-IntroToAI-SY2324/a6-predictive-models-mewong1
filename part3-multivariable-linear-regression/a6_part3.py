@@ -42,10 +42,10 @@ for index in range(len(xtest)):
 
 my_cars = [[89,10], [150,20]]
 my_predictions = np.around(model.predict(my_cars), 2)
-print(my_predictions)
+print("My predictions", my_predictions)
 
 
 print("***************")
-print("Testing Results")
+print("Testing Results ")
 
 
