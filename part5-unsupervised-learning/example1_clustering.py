@@ -5,10 +5,11 @@ from sklearn.cluster import KMeans
 
 #imports the data
 data = pd.read_csv("part5-unsupervised-learning/old_faithful_data.csv")
-data = data[["eruptions", "waiting"]]
+data = data[["eruptions", "waiting"]].values
 
 #standardizes the data
-x_std = StandardScaler().fit_transform(data)
+scaler = StandardScaler().fit(data)
+x_std = scaler.transform(data)
 
 #sets the value of k and creates kmeans model
 k = 2
@@ -25,13 +26,17 @@ plt.figure(figsize=(5,4))
 
 #plots the data points for each cluster
 for i in range(k):
-    cluster = x_std[labels == i]
+    cluster = data[labels == i]
+    # print(cluster)
     plt.scatter(cluster[:,0], cluster[:,1])
 
 #plots the centriods
-plt.scatter(centroids[:, 0], centroids[:, 1], marker='X', s=100,
+# plt.scatter(, marker='X', s=100,
+            # c='r', label='centroid')
+print(centroids)
+cent = scaler.inverse_transform(centroids)
+plt.scatter(cent[:,0], cent[:,1], marker='X', s=100,
             c='r', label='centroid')
-
 #labels the axes
 plt.xlabel('Length of Eruption (minutes)')
 plt.ylabel('Time Between Eruptions(minutes)')
