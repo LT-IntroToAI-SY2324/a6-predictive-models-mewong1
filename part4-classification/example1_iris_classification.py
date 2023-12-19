@@ -13,11 +13,13 @@ data = pd.read_csv("part4-classification/iris_data.csv")
 data['Species'].replace(['Iris-setosa','Iris-virginica', 'Iris-versicolor'],[0,1,2],inplace=True)
 x = data[["SepalLengthCm", "SepalWidthCm", "PetalLengthCm", "PetalWidthCm"]].values
 y = data["Species"].values
+print(y)
 
 #Standardizes the x values
 scaler = StandardScaler().fit(x)
+print(scaler)
 x = scaler.transform(x)
-
+print(x)
 #Splits the data into a training and testing set
 x_train, x_test, y_train, y_test = train_test_split(x, y)
 
@@ -29,12 +31,16 @@ print("Accuracy:", model.score(x_test, y_test))
 print("*************")
 print("Testing Results:")
 print("")
-print(y_test)
+predict = model.predict(x_test)
+print(predict)
+# print(y_test)
 for index in range(len(x_test)):
-    x = x_test[index]
-    x = x.reshape(-1, 4)
-    y_pred = int(model.predict(x))
-
+    # x = x_test[index]
+    # print(x)
+    # x = x.reshape(-1, 4)
+    # print(x)
+    # y_pred = int(model.predict(x))
+    y_pred = predict[index]
     if y_pred == 0:
         y_pred = "Iris-setosa"
     elif y_pred == 1:
@@ -51,3 +57,8 @@ for index in range(len(x_test)):
         actual = "Iris-versicolor"
     print("Predicted Species: " + y_pred + " Actual Species: " + actual)
     print("")
+
+my_data = [[7, 4.8, 3, 1.5]]
+my_scaled_data = scaler.transform(my_data)
+my_predictions = model.predict(my_scaled_data)
+print(my_predictions)
